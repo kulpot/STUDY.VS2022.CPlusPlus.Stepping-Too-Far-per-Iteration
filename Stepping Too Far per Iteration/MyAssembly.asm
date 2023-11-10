@@ -52,7 +52,7 @@ doit proc			; proc -- procedure
 
 
 		
-	; * 2^1 + 2^2 * 2^3 + 2^4 * 2^5 + 2^6 +..... 2^n
+	;+ 2^0 * 2^1 + 2^2 * 2^3 + 2^4 * 2^5 + 2^6 +..... 2^n
 
 	;	 loop(ebx)		Power(power)	total(ecx)		totalHex
 ;		2^1				2				2				2
@@ -67,13 +67,10 @@ doit proc			; proc -- procedure
 	mov ecx, 1
 
 again:				; loop mul to add
-	;;;;;;;; Next power:	; redundant code
-	;;;;;;;mov eax, power		; for intel structure running eax
-	;;;;;;;mul ebx				; for intel structure running eax
-	;;;;;;;mov power, eax		; for intel structure running eax
-	;;;;;;;inc count
+	; Repeat if necessary
+	cmp count, 5		
+	jl Done
 
-	;jmp CalculateNextPower			; jump is highly than goto
 	call CalculateNextPower			; call is the same as jmp
 back1:
 	; Multiply the current power to the total
@@ -81,21 +78,16 @@ back1:
 	mul ecx				; replace total to ecx
 	mov ecx, eax		; replace total to ecx
 
-	;;;;;;;; Next power:	; redundant code
-	;;;;;;;mov eax, power
-	;;;;;;;mul ebx			
-	;;;;;;;mov power, eax
-	;;;;;;;inc count
-
-	;jmp CalculateNextPower
 	call CalculateNextPower
 back2:
 	; Add the power to total
 	add ecx, power
 
-	; Repeat if necessary
-	cmp count, 5		
-	jl again
+	;; Repeat if necessary
+	;cmp count, 0		
+	;jl again
+
+Done:
 	ret
 
 ;CalculateNextPower:
