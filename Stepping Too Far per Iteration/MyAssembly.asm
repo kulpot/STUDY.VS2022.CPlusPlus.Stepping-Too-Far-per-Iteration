@@ -24,6 +24,23 @@ doit proc			; proc -- procedure
 	; INTELs least significant value - also called LSb(LeastSignificantBit)
 	; In computing, the least significant bit (LSb) is the bit position in a binary integer representing the binary 1s place of the integer. Similarly, the most significant bit (MSb) represents the highest-order place of the binary integer.
 
+	;	----------------------------- Stepping Too Far per Iteration -----------------------------------
+	; ref link:https://www.youtube.com/watch?v=SE1VX4V1g-E&list=PLRwVmtr-pp05c1HTBj1no6Fl6C6mlxYDG&index=46
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	;	---------------------- Labels vs Procedures ---------------------------------------------
 	; ref link:https://www.youtube.com/watch?v=jlchFQuOwCc&list=PLRwVmtr-pp05c1HTBj1no6Fl6C6mlxYDG&index=43
 	; proc -- procedure - outside assembly program call, 
